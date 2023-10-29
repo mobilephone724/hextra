@@ -18,3 +18,8 @@ onThisPage: "此页上"
 poweredBy: "由 Hextra 驱动"
 readMore: "更多 →"
 searchPlaceholder: "搜索文档..."
+
+# my option
+database: "数据库"
+miscellaneous: "杂项"
+# my option end
