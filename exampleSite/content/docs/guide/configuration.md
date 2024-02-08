@@ -90,6 +90,16 @@ params:
 For the main sidebar, it is automatically generated from the structure of the content directory.
 See the [Organize Files](/docs/guide/organize-files) page for more details.
 
+To exclude a single page from the left sidebar, set the `sidebar.exclude` parameter in the front matter of the page:
+
+```yaml {filename="content/docs/guide/configuration.md"}
+---
+title: Configuration
+sidebar:
+  exclude: true
+---
+```
+
 ### Extra Links
 
 Sidebar extra links are defined under the `menu.sidebar` section in the config file:
@@ -129,17 +139,17 @@ To configure the page edit link, we can set the `params.editURL.base` parameter 
 ```yaml {filename="hugo.yaml"}
 params:
   editURL:
+    enable: true
     base: "https://github.com/your-username/your-repo/edit/main"
 ```
 
-The edit links will be automatically generated for each page.
-If you want to set edit link for a specific page, you can set the `params.editURL` parameter in the front matter of the page:
+The edit links will be automatically generated for each page based on the provided url as root directory.
+If you want to set edit link for a specific page, you can set the `editURL` parameter in the front matter of the page:
 
 ```yaml {filename="content/docs/guide/configuration.md"}
 ---
 title: Configuration
-params:
-  editURL: "https://example.com/edit/this/page"
+editURL: "https://example.com/edit/this/page"
 ---
 ```
 
@@ -252,8 +262,10 @@ excludeSearch: true
 
 ### Google Analytics
 
-To enable Google Analytics, set the `googleAnalytics` parameter in the config file:
+To enable [Google Analytics](https://marketingplatform.google.com/about/analytics/), set `services.googleAnalytics.ID` flag in `hugo.yaml`:
 
 ```yaml {filename="hugo.yaml"}
-googleAnalytics: G-XXXXXXXXXX
+services:
+  googleAnalytics:
+    ID: G-MEASUREMENT_ID
 ```
